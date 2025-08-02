@@ -93,7 +93,7 @@ export default function Home() {
               <div className="absolute -inset-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500"></div>
               <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/rudraksha-beads.jpg"
+                  src="/logo.jpg"
                   alt="Sacred Rudraksha Beads"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -120,12 +120,12 @@ export default function Home() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
-              { name: "Sacred 5 Mukhi Mala", price: 108, originalPrice: 150 },
-              { name: "Divine 7 Mukhi Set", price: 188, originalPrice: 225 },
-              { name: "Premium 21 Mukhi", price: 388, originalPrice: 450 },
-              { name: "Lotus Carved Mala", price: 258, originalPrice: 300 },
-              { name: "Spiritual Bracelet Set", price: 128, originalPrice: 160 },
-              { name: "Temple Blessed Collection", price: 488, originalPrice: 550 }
+              { name: "Sacred 5 Mukhi Mala", price: 108, originalPrice: 150, image: "/logo2.JPG" },
+              { name: "Divine 7 Mukhi Set", price: 188, originalPrice: 225, image: "/logo3.JPG" },
+              { name: "Premium 21 Mukhi", price: 388, originalPrice: 450, image: "/logo4.JPG" },
+              { name: "Lotus Carved Mala", price: 258, originalPrice: 300, image: "/logo5.JPG" },
+              { name: "Spiritual Bracelet Set", price: 128, originalPrice: 160, image: "/logo.jpg" },
+              { name: "Temple Blessed Collection", price: 488, originalPrice: 550, image: "/logo5.JPG" }
             ].map((product, index) => (
               <div key={index} className="group relative">
                 <div className="absolute -inset-2 bg-gradient-to-r from-[#D4AF37]/20 to-[#FFD700]/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
@@ -133,7 +133,7 @@ export default function Home() {
                 <div className="relative bg-gradient-to-b from-[#1A1A1A] to-[#111] rounded-2xl overflow-hidden border border-[#333] group-hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl">
                   <div className="relative h-[350px] overflow-hidden">
                     <Image
-                      src={`/product-${index + 1}.jpg`}
+                      src={product.image}
                       alt={product.name}
                       fill
                       className="object-cover transition-all duration-700 group-hover:scale-110"
@@ -207,7 +207,9 @@ export default function Home() {
                   <div className="flex items-center">
                     <div className="w-16 h-16 rounded-full overflow-hidden relative mr-4 ring-2 ring-[#D4AF37]/30">
                       <Image
-                        src={`/testimonial-${index + 1}.jpg`}
+                        src={index === 0 ? '/4-Mukhi Border.jpg' :
+                            index === 1 ? '/ganesh vertical.jpg' :
+                            '/Gauri Shankar 22.jpg'}
                         alt={testimonial.name}
                         fill
                         className="object-cover"
