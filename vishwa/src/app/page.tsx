@@ -1,11 +1,15 @@
 import Image from 'next/image';
 import { Cinzel } from 'next/font/google';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const cinzel = Cinzel({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0A0A0A] overflow-hidden">
+    <>
+      <Navbar />
+      <main className="min-h-screen bg-[#0A0A0A] overflow-hidden pt-20">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-[#111] via-[#0A0A0A] to-black overflow-hidden">
         {/* Animated background pattern */}
@@ -27,17 +31,17 @@ export default function Home() {
             </span>
           </h1>
           
-          <p className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-light leading-relaxed" style={{ fontFamily: 'Times New Roman, serif' }}>
             Discover authentic spiritual jewelry that connects you to divine energy and ancient wisdom
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group relative bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-12 py-4 rounded-full font-semibold text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#D4AF37]/30">
+            <button className="group relative bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-12 py-4 rounded-full font-semibold text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#D4AF37]/30" style={{ fontFamily: 'Times New Roman, serif' }}>
               <span className="relative z-10">Explore Collection</span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </button>
             
-            <button className="group relative border-2 border-[#D4AF37] text-[#D4AF37] px-12 py-4 rounded-full font-semibold text-lg transition-all duration-500 hover:bg-[#D4AF37] hover:text-black hover:scale-105 hover:shadow-xl hover:shadow-[#D4AF37]/20">
+            <button className="group relative border-2 border-[#D4AF37] text-[#D4AF37] px-12 py-4 rounded-full font-semibold text-lg transition-all duration-500 hover:bg-[#D4AF37] hover:text-black hover:scale-105 hover:shadow-xl hover:shadow-[#D4AF37]/20" style={{ fontFamily: 'Times New Roman, serif' }}>
               Learn More
             </button>
           </div>
@@ -62,22 +66,22 @@ export default function Home() {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <p className="text-gray-300 text-lg leading-relaxed font-light">
+              <p className="text-gray-300 text-lg leading-relaxed font-light" style={{ fontFamily: 'Times New Roman, serif' }}>
                 Rudraksha beads, known as the <span className="text-[#D4AF37] font-medium">tears of Lord Shiva</span>, have been revered for centuries for their profound spiritual and healing properties. Each bead carries unique vibrations that can help balance your energy and enhance meditation practice.
               </p>
               
-              <p className="text-gray-300 text-lg leading-relaxed font-light">
+              <p className="text-gray-300 text-lg leading-relaxed font-light" style={{ fontFamily: 'Times New Roman, serif' }}>
                 Our carefully curated collection brings you the finest quality Rudraksha beads, ethically sourced and authenticated by experts with decades of experience.
               </p>
               
               <div className="grid grid-cols-2 gap-8 pt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-serif text-[#D4AF37] mb-2">500+</div>
-                  <div className="text-gray-400 text-sm uppercase tracking-wider">Sacred Years</div>
+                  <div className="text-3xl font-serif text-[#D4AF37] mb-2" style={{ fontFamily: 'Times New Roman, serif' }}>500+</div>
+                  <div className="text-gray-400 text-sm uppercase tracking-wider" style={{ fontFamily: 'Times New Roman, serif' }}>Sacred Years</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-serif text-[#D4AF37] mb-2">100%</div>
-                  <div className="text-gray-400 text-sm uppercase tracking-wider">Authentic</div>
+                  <div className="text-3xl font-serif text-[#D4AF37] mb-2" style={{ fontFamily: 'Times New Roman, serif' }}>100%</div>
+                  <div className="text-gray-400 text-sm uppercase tracking-wider" style={{ fontFamily: 'Times New Roman, serif' }}>Authentic</div>
                 </div>
               </div>
             </div>
@@ -253,76 +257,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-b from-black to-[#0A0A0A] py-20 px-4 sm:px-6 lg:px-8 border-t border-[#333]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div className="md:col-span-1">
-              <h3 className={`text-white ${cinzel.className} text-2xl mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent`}>
-                Rudraksha
-              </h3>
-              <p className="text-gray-400 leading-relaxed font-light">
-                Curating authentic Rudraksha beads for your spiritual journey towards enlightenment and inner peace.
-              </p>
-              
-              <div className="flex space-x-4 mt-8">
-                {['facebook', 'instagram', 'twitter', 'youtube'].map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    className="w-12 h-12 bg-[#1A1A1A] border border-[#333] rounded-full flex items-center justify-center text-gray-400 hover:text-[#D4AF37] hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300"
-                  >
-                    <span className="sr-only">{social}</span>
-                    <div className="w-5 h-5"></div>
-                  </a>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="text-white font-serif text-xl mb-6">Quick Links</h3>
-              <ul className="space-y-4">
-                {['Shop Collection', 'About Rudraksha', 'Spiritual Blog', 'Contact Us', 'Size Guide'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 font-light">
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-white font-serif text-xl mb-6">Customer Care</h3>
-              <ul className="space-y-4 text-gray-400 font-light">
-                <li>support@rudraksha.com</li>
-                <li>+1 (555) 123-4567</li>
-                <li>Live Chat Available</li>
-                <li>Free Worldwide Shipping</li>a
-                <li>30-Day Return Policy</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-white font-serif text-xl mb-6">Sacred Guarantee</h3>
-              <ul className="space-y-4 text-gray-400 font-light">
-                <li>✓ Authenticated by Experts</li>
-                <li>✓ Ethically Sourced</li>
-                <li>✓ Energy Cleansed</li>
-                <li>✓ Temple Blessed</li>
-                <li>✓ Certificate Included</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-[#333] text-center">
-            <p className="text-gray-500 font-light">
-              © {new Date().getFullYear()} Rudraksha. All rights reserved. | 
-              <span className="text-[#D4AF37]"> Crafted with Sacred Intent</span>
-            </p>
-          </div>
-        </div>
-      </footer>
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }
