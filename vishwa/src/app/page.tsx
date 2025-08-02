@@ -194,7 +194,7 @@ export default function Home() {
                   </div>
                   
                   <p className="text-gray-300 italic text-lg leading-relaxed mb-8 font-light">
-                    "The energy of these Rudraksha beads is truly transformative. I can feel their sacred vibrations during my meditation practice. The quality is exceptional."
+                    &ldquo;The energy of these Rudraksha beads is truly transformative. I can feel their sacred vibrations during my meditation practice. The quality is exceptional.&rdquo;
                   </p>
                   
                   <div className="flex items-center">
