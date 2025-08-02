@@ -20,9 +20,15 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-6"></div>
           </div>
           
-          <h1 className={`text-5xl sm:text-7xl lg:text-8xl ${cinzel.className} font-light text-white mb-8 leading-tight tracking-wide`}>
+          <h1 className={`text-5xl sm:text-7xl lg:text-8xl ${cinzel.className} font-light text-white mb-8 leading-tight tracking-wide`}
+              style={{
+                textShadow: '0 4px 8px rgba(0, 0, 0, 0.8), 0 8px 16px rgba(212, 175, 55, 0.3), 0 16px 32px rgba(0, 0, 0, 0.5)'
+              }}>
             Harness the Power of
-            <span className="block bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent font-normal">
+            <span className="block bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent font-normal"
+                  style={{
+                    textShadow: '0 4px 8px rgba(212, 175, 55, 0.5), 0 8px 16px rgba(255, 215, 0, 0.3)'
+                  }}>
               Rudraksha
             </span>
           </h1>
@@ -54,9 +60,17 @@ export default function Home() {
               <div className="w-16 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-4"></div>
               <span className="text-[#D4AF37] text-sm font-semibold tracking-widest uppercase">Sacred Heritage</span>
             </div>
-            <h2 className={`text-4xl sm:text-6xl ${cinzel.className} font-light text-white mb-8`}>
+            <h2 className={`text-4xl sm:text-6xl ${cinzel.className} font-light text-white mb-8`}
+                style={{
+                  textShadow: '0 4px 8px rgba(0, 0, 0, 0.7), 0 8px 16px rgba(212, 175, 55, 0.2)'
+                }}>
               Sacred Beads of
-              <span className="block text-[#D4AF37]">Transformation</span>
+              <span className="block text-[#D4AF37]"
+                    style={{
+                      textShadow: '0 4px 8px rgba(212, 175, 55, 0.4), 0 8px 16px rgba(0, 0, 0, 0.6)'
+                    }}>
+                Transformation
+              </span>
             </h2>
           </div>
           
@@ -106,7 +120,10 @@ export default function Home() {
               <div className="w-16 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-4"></div>
               <span className="text-[#D4AF37] text-sm font-semibold tracking-widest uppercase">Premium Selection</span>
             </div>
-            <h2 className={`text-4xl sm:text-6xl ${cinzel.className} font-light text-white mb-8`}>
+            <h2 className={`text-4xl sm:text-6xl ${cinzel.className} font-light text-white mb-8`}
+                style={{
+                  textShadow: '0 4px 8px rgba(0, 0, 0, 0.7), 0 8px 16px rgba(212, 175, 55, 0.2)'
+                }}>
               Featured Collections
             </h2>
           </div>
@@ -171,7 +188,10 @@ export default function Home() {
               <div className="w-16 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-4"></div>
               <span className="text-[#D4AF37] text-sm font-semibold tracking-widest uppercase">Sacred Experiences</span>
             </div>
-            <h2 className={`text-4xl sm:text-6xl ${cinzel.className} font-light text-white mb-8`}>
+            <h2 className={`text-4xl sm:text-6xl ${cinzel.className} font-light text-white mb-8`}
+                style={{
+                  textShadow: '0 4px 8px rgba(0, 0, 0, 0.7), 0 8px 16px rgba(212, 175, 55, 0.2)'
+                }}>
               Testimonials
             </h2>
           </div>
@@ -229,7 +249,10 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-6"></div>
           </div>
           
-          <h2 className={`text-4xl sm:text-6xl ${cinzel.className} font-light text-white mb-8`}>
+          <h2 className={`text-4xl sm:text-6xl ${cinzel.className} font-light text-white mb-8`}
+              style={{
+                textShadow: '0 4px 8px rgba(0, 0, 0, 0.7), 0 8px 16px rgba(212, 175, 55, 0.2)'
+              }}>
             Join Our Sacred Circle
           </h2>
           
@@ -258,7 +281,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-1">
-              <h3 className={`text-white ${cinzel.className} text-2xl mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent`}>
+              <h3 className={`text-white ${cinzel.className} text-2xl mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent`}
+                  style={{
+                    textShadow: '0 2px 4px rgba(212, 175, 55, 0.3), 0 4px 8px rgba(0, 0, 0, 0.5)'
+                  }}>
                 Rudraksha
               </h3>
               <p className="text-gray-400 leading-relaxed font-light">
@@ -298,7 +324,7 @@ export default function Home() {
                 <li>support@rudraksha.com</li>
                 <li>+1 (555) 123-4567</li>
                 <li>Live Chat Available</li>
-                <li>Free Worldwide Shipping</li>a
+                <li>Free Worldwide Shipping</li>
                 <li>30-Day Return Policy</li>
               </ul>
             </div>
