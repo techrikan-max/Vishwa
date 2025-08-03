@@ -53,7 +53,7 @@ npm install
 npm run dev
 ```
 
-3. **Open your browser:**
+3. **Open your browser :**
 Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## API Endpoints
