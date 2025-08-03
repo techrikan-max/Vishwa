@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vishwa - Sacred Spiritual Jewelry
+
+A Next.js e-commerce application for authentic Rudraksha beads and spiritual jewelry with user authentication, profile photo upload, and an AI-powered FAQ chatbot.
+
+## Features
+
+- 🔐 **User Authentication**: Complete signup/login system with JWT tokens
+- 📸 **Profile Photo Upload**: Optional profile photos stored in Cloudinary
+- 🤖 **FAQ Chatbot**: Interactive button-navigated FAQ system for customer support
+- 🛡️ **Secure Password**: Bcrypt password hashing for security
+- 📱 **Responsive Design**: Beautiful UI with consistent theming
+- 🎨 **Modern UI**: Tailwind CSS with custom Rudraksha-themed design
+
+## Tech Stack
+
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Styling**: Tailwind CSS, Cinzel font (Google Fonts)
+- **Backend**: Next.js API Routes
+- **Database**: MongoDB with Mongoose ODM
+- **Authentication**: JWT tokens, bcryptjs for password hashing
+- **File Upload**: Cloudinary for profile images
+- **Deployment**: Vercel-ready
+
+
+## Configuration
+
+The `next.config.ts` file is configured to allow Cloudinary images:
+
+```typescript
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+};
+```
 
 ## Getting Started
 
-First, run the development server:
-
+1. **Install dependencies:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Run the development server:**
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Open your browser:**
+Navigate to [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## API Endpoints
 
-## Learn More
+### Authentication
+- `POST /api/auth/register` - User registration with optional profile photo
+- `POST /api/auth/login` - User login
+- `POST /api/auth/logout` - User logout
 
-To learn more about Next.js, take a look at the following resources:
+### Chatbot
+- `GET /api/chatbot` - Get all FAQ data organized by categories
+- `POST /api/chatbot` - Search FAQs by query
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features Overview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### User Authentication
+- **Signup**: Users can create accounts with name, email, password, and optional profile photo
+- **Login**: Secure login with email and password
+- **Profile Photos**: Optional image upload to Cloudinary with automatic resizing
+- **Password Security**: Bcrypt hashing with salt rounds for maximum security
 
-## Deploy on Vercel
+### FAQ Chatbot
+- **Category-based Navigation**: Questions organized by categories (General, Selection, Usage, etc.)
+- **Interactive UI**: Button-driven navigation for easy user experience
+- **Comprehensive Answers**: Detailed responses about Rudraksha beads and spiritual jewelry
+- **Thank You Messages**: Polite closing after each interaction
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### UI/UX
+- **Consistent Theme**: Gold (#D4AF37) and black color scheme throughout
+- **Responsive Design**: Works perfectly on desktop and mobile devices
+- **Smooth Animations**: Hover effects and transitions for better user experience
+- **Typography**: Cinzel font for headings, Times New Roman for body text
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/
+│   │   ├── auth/
+│   │   │   ├── login/route.ts
+│   │   │   ├── register/route.ts
+│   │   │   └── logout/route.ts
+│   │   └── chatbot/route.ts
+│   ├── login/page.tsx
+│   ├── signup/page.tsx
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── ChatBot.tsx
+│   ├── ChatButton.tsx
+│   ├── Footer.tsx
+│   └── Navbar.tsx
+├── context/
+│   └── AuthContext.tsx
+├── data/
+│   └── faqData.ts
+├── lib/
+│   ├── auth.ts
+│   ├── cloudinary.ts
+│   └── mongodb.ts
+├── models/
+│   └── User.ts
+└── types/
+    └── index.ts
+```
+
+## Contributing
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License.
+
+## Deployment
+
+The app is ready for deployment on Vercel. Simply connect your GitHub repository to Vercel and add the environment variables in the Vercel dashboard.
+
+```bash
+npm run build
+```
+
+## Support
+
+For support, email support@vishwa.com or open an issue on GitHub.

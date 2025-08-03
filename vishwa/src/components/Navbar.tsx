@@ -2,13 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Cinzel } from 'next/font/google';
+import { useAuth } from '@/context/AuthContext';
 
 const cinzel = Cinzel({ subsets: ['latin'] });
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isAuthenticated, user, logout, loading } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,12 +42,12 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <div className="w-12 h-12 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                <span className={`text-black font-bold text-xl ${cinzel.className}`}>R</span>
+                <span className={`text-black font-bold text-xl ${cinzel.className}`}>V</span>
               </div>
               <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-300"></div>
             </div>
             <span className={`text-white text-2xl font-light ${cinzel.className} group-hover:text-[#D4AF37] transition-colors duration-300`}>
-              Rudraksha
+              Vishwa
             </span>
           </Link>
 
@@ -66,21 +69,57 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             {/* Desktop Auth Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              <Link
-                href="/login"
-                className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-light tracking-wide"
-                style={{ fontFamily: 'Times New Roman, serif' }}
-              >
-                Login
-              </Link>
-              <Link
-                href="/signup"
-                className="group relative bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-6 py-2 rounded-full font-semibold text-sm overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#D4AF37]/30"
-                style={{ fontFamily: 'Times New Roman, serif' }}
-              >
-                <span className="relative z-10">Sign Up</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Link>
+              {loading ? (
+                <div className="w-8 h-8 rounded-full bg-gray-600 animate-pulse"></div>
+              ) : isAuthenticated && user ? (
+                <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2">
+                    {user.profilePhoto ? (
+                      <Image
+                        src={user.profilePhoto}
+                        alt={user.name}
+                        width={32}
+                        height={32}
+                        className="rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-8 h-8 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-full flex items-center justify-center">
+                        <span className="text-black font-semibold text-sm">
+                          {user.name.charAt(0).toUpperCase()}
+                        </span>
+                      </div>
+                    )}
+                    <span className="text-white text-sm font-medium" style={{ fontFamily: 'Times New Roman, serif' }}>
+                      {user.name}
+                    </span>
+                  </div>
+                  <button
+                    onClick={logout}
+                    className="text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 font-light tracking-wide"
+                    style={{ fontFamily: 'Times New Roman, serif' }}
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-light tracking-wide"
+                    style={{ fontFamily: 'Times New Roman, serif' }}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="group relative bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-6 py-2 rounded-full font-semibold text-sm overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#D4AF37]/30"
+                    style={{ fontFamily: 'Times New Roman, serif' }}
+                  >
+                    <span className="relative z-10">Sign Up</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Link>
+                </>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -119,22 +158,61 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="border-t border-[#333] pt-4 px-4 space-y-4">
-                <Link
-                  href="/login"
-                  className="block text-white hover:text-[#D4AF37] transition-colors duration-300 font-light tracking-wide py-2"
-                  style={{ fontFamily: 'Times New Roman, serif' }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/signup"
-                  className="inline-block bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#D4AF37]/30"
-                  style={{ fontFamily: 'Times New Roman, serif' }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Sign Up
-                </Link>
+                {loading ? (
+                  <div className="w-full h-10 bg-gray-600 animate-pulse rounded-full"></div>
+                ) : isAuthenticated && user ? (
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3 py-2">
+                      {user.profilePhoto ? (
+                        <Image
+                          src={user.profilePhoto}
+                          alt={user.name}
+                          width={32}
+                          height={32}
+                          className="rounded-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-8 h-8 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] rounded-full flex items-center justify-center">
+                          <span className="text-black font-semibold text-sm">
+                            {user.name.charAt(0).toUpperCase()}
+                          </span>
+                        </div>
+                      )}
+                      <span className="text-white font-medium" style={{ fontFamily: 'Times New Roman, serif' }}>
+                        {user.name}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        logout();
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="block w-full text-left text-gray-300 hover:text-[#D4AF37] transition-colors duration-300 font-light tracking-wide py-2"
+                      style={{ fontFamily: 'Times New Roman, serif' }}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <Link
+                      href="/login"
+                      className="block text-white hover:text-[#D4AF37] transition-colors duration-300 font-light tracking-wide py-2"
+                      style={{ fontFamily: 'Times New Roman, serif' }}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      href="/signup"
+                      className="inline-block bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-black px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#D4AF37]/30"
+                      style={{ fontFamily: 'Times New Roman, serif' }}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Sign Up
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
