@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Cinzel } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ChatButton from '@/components/ChatButton';
 
 const cinzel = Cinzel({ subsets: ['latin'] });
 
@@ -282,6 +283,7 @@ export default function Home() {
 
       </main>
       <Footer />
+      <ChatButton />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cinzel } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/context/AuthContext";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -24,7 +25,9 @@ export default function RootLayout({
         className={`${cinzel.variable} antialiased`}
         style={{ fontFamily: 'Times New Roman, serif' }}
       >
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
